@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrAPPee - Free Apps Store</title>
+    <!-- Logo nella scheda del browser (Favicon) -->
+    <link rel="icon" type="image/png" href="FrAPPee.png">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; text-align: center; padding: 40px 20px; margin: 0; }
         .container { max-width: 750px; margin: 0 auto; background: #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); border: 1px solid #334155; }
@@ -30,8 +32,11 @@
 <body>
 
     <div class="container">
-        <!-- Brand FrAPPee -->
-        <div class="logo">Fr<span>APP</span>ee</div>
+        <!-- Brand FrAPPee con Logo Affiancato -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 5px;">
+            <img src="FrAPPee.png" alt="Logo FrAPPee" style="width: 55px; height: 55px; object-fit: contain; border-radius: 10px;">
+            <div class="logo" style="margin: 0;">Fr<span>APP</span>ee</div>
+        </div>
         <p class="subtitle">Portale di distribuzione indipendente per applicazioni gratuite, sicure e open-source.</p>
 
         <div class="app-list">
