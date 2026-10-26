@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrAPPee - Free Apps Store</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; color: #0f172a; text-align: center; padding: 40px 20px; margin: 0; }
-        .container { max-width: 750px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; text-align: center; padding: 40px 20px; margin: 0; }
+        .container { max-width: 750px; margin: 0 auto; background: #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); border: 1px solid #334155; }
         .logo { font-size: 3.5rem; font-weight: 800; color: #10b981; margin-bottom: 5px; letter-spacing: -1px; }
         .logo span { color: #06b6d4; }
-        .subtitle { color: #64748b; font-size: 1.15rem; margin-bottom: 40px; font-weight: 400; }
+        .subtitle { color: #94a3b8; font-size: 1.15rem; margin-bottom: 40px; font-weight: 400; }
         .app-list { text-align: left; }
-        .app-card { border: 1px solid #e2e8f0; padding: 25px; margin: 25px 0; border-radius: 12px; background-color: #ffffff; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
-        .app-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08); border-color: #cbd5e1; }
-        .app-title { font-size: 1.5rem; color: #0f172a; margin: 0 0 10px 0; font-weight: 700; }
+        .app-card { border: 1px solid #334155; padding: 25px; margin: 25px 0; border-radius: 12px; background-color: #0f172a; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+        .app-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.5); border-color: #475569; }
+        .app-card.coming-soon { opacity: 0.7; border-style: dashed; }
+        .app-card.coming-soon:hover { transform: none; box-shadow: none; border-color: #334155; }
+        .app-title { font-size: 1.5rem; color: #f8fafc; margin: 0 0 10px 0; font-weight: 700; }
         .app-tags { margin-bottom: 15px; }
-        .tag { display: inline-block; background-color: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; margin-right: 5px; }
-        .tag.android { background-color: #dcfce7; color: #15803d; }
-        .app-desc { color: #475569; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
-        .download-btn { display: inline-block; background-color: #10b981; color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2); }
-        .download-btn:hover { background-color: #059669; }
+        .tag { display: inline-block; background-color: #334155; color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; margin-right: 5px; }
+        .tag.android { background-color: #064e3b; color: #6ee7b7; border: 1px solid #047857; }
+        .tag.windows { background-color: #1e3a8a; color: #93c5fd; border: 1px solid #1d4ed8; }
+        .tag.soon { background-color: #78350f; color: #fde68a; border: 1px solid #b45309; }
+        .app-desc { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
+        .download-btn { display: inline-block; background-color: #10b981; color: #0f172a; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); }
+        .download-btn:hover { background-color: #34d399; color: #0f172a; }
+        .download-btn.disabled { background-color: #475569; color: #94a3b8; box-shadow: none; cursor: not-allowed; pointer-events: none; }
     </style>
 </head>
 <body>
@@ -30,17 +35,41 @@
         <p class="subtitle">Portale di distribuzione indipendente per applicazioni gratuite, sicure e open-source.</p>
 
         <div class="app-list">
-            <!-- Scheda Applicazione Scanner PDF -->
+            
+            <!-- SPAZIO 1: PDFocalize -->
             <div class="app-card">
-                <h3 class="app-title">Foto in PDF - Camera Scanner</h3>
+                <h3 class="app-title">PDFocalize - Camera Scanner</h3>
                 <div class="app-tags">
                     <span class="tag android">Android (.apk)</span>
                     <span class="tag">Versione 1.0.0</span>
                 </div>
-                <p class="app-desc">Trasforma la fotocamera del tuo smartphone in uno scanner portatile. Scatta foto a documenti, ricevute o appunti e convertili all'istante in file PDF pronti da condividere o salvare sul dispositivo. Interfaccia pulita, elaborazione veloce e senza filigrane.</p>
-                <!-- Al momento il pulsante punta a un link vuoto, lo collegheremo dopo -->
+                <p class="app-desc">Trasforma la fotocamera del tuo smartphone in uno scanner portatile ad alta precisione. Metti a fuoco, scatta e converti istantaneamente documenti, ricevute o appunti in file PDF nitidi e leggeri, pronti per essere archiviati o condivisi. Interfaccia pulita, ottimizzazione dell'immagine e nessuna filigrana.</p>
+                <!-- Questo link lo collegheremo tra pochissimo -->
                 <a href="#" class="download-btn">Scarica l'App</a>
             </div>
+
+            <!-- SPAZIO 2: App Desktop (In Arrivo) -->
+            <div class="app-card coming-soon">
+                <h3 class="app-title">Prossimo Progetto Desktop</h3>
+                <div class="app-tags">
+                    <span class="tag windows">Windows (.exe)</span>
+                    <span class="tag soon">In Arrivo</span>
+                </div>
+                <p class="app-desc">Descrizione del tuo secondo software in fase di sviluppo. Questo spazio è già formattato e pronto: quando l'app sarà pronta, ti basterà modificare questo testo e sostituire il pulsante qui sotto.</p>
+                <a href="#" class="download-btn disabled">Non ancora disponibile</a>
+            </div>
+
+            <!-- SPAZIO 3: Nuova App (In Arrivo) -->
+            <div class="app-card coming-soon">
+                <h3 class="app-title">Nuova Applicazione</h3>
+                <div class="app-tags">
+                    <span class="tag">Da definire</span>
+                    <span class="tag soon">In Arrivo</span>
+                </div>
+                <p class="app-desc">Un ulteriore slot riservato alle tue future idee software. Mantiene il layout del sito pulito e mostra ai visitatori che il catalogo di FrAPPee è in continua espansione.</p>
+                <a href="#" class="download-btn disabled">Non ancora disponibile</a>
+            </div>
+
         </div>
         
     </div>
