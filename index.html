@@ -17,16 +17,41 @@
         .app-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.5); border-color: #475569; }
         .app-card.coming-soon { opacity: 0.7; border-style: dashed; }
         .app-card.coming-soon:hover { transform: none; box-shadow: none; border-color: #334155; }
-        .app-title { font-size: 1.5rem; color: #f8fafc; margin: 0 0 10px 0; font-weight: 700; }
-        .app-tags { margin-bottom: 15px; }
+        
+        /* Layout Intestazione Scheda App con Logo */
+        .app-header-container { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .app-icon { width: 60px; height: 60px; border-radius: 12px; border: 1px solid #334155; object-fit: cover; background-color: #1e293b; }
+        .app-header-text { display: flex; flex-direction: column; }
+        
+        .app-title { font-size: 1.5rem; color: #f8fafc; margin: 0 0 5px 0; font-weight: 700; }
+        .app-tags { margin-bottom: 0px; }
         .tag { display: inline-block; background-color: #334155; color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; margin-right: 5px; }
         .tag.android { background-color: #064e3b; color: #6ee7b7; border: 1px solid #047857; }
-        .tag.windows { background-color: #1e3a8a; color: #93c5fd; border: 1px solid #1d4ed8; }
         .tag.soon { background-color: #78350f; color: #fde68a; border: 1px solid #b45309; }
         .app-desc { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
-        .download-btn { display: inline-block; background-color: #10b981; color: #0f172a; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); }
+        
+        /* Pulsanti */
+        .actions-row { display: flex; gap: 15px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+        .download-btn { display: inline-block; background-color: #10b981; color: #0f172a; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); border: none; cursor: pointer; }
         .download-btn:hover { background-color: #34d399; color: #0f172a; }
         .download-btn.disabled { background-color: #475569; color: #94a3b8; box-shadow: none; cursor: not-allowed; pointer-events: none; }
+        
+        .info-btn { display: inline-block; background-color: transparent; color: #38bdf8; padding: 11px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.2s; border: 1px solid #38bdf8; cursor: pointer; }
+        .info-btn:hover { background-color: rgba(56, 189, 248, 0.1); }
+
+        /* Sezione Dettagli Nascosta */
+        .details-panel { display: none; margin-top: 25px; padding-top: 25px; border-top: 1px solid #334155; }
+        .details-panel.active { display: block; }
+        
+        .section-title { font-size: 1.1rem; color: #38bdf8; margin: 25px 0 12px 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Lista Istruzioni */
+        .steps-list { padding-left: 20px; margin: 0 0 20px 0; color: #cbd5e1; }
+        .steps-list li { margin-bottom: 10px; line-height: 1.6; }
+
+        /* Griglia Anteprime */
+        .screenshot-grid { display: flex; gap: 15px; margin-top: 15px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+        .screenshot-grid img { width: 160px; height: auto; border-radius: 8px; border: 2px solid #334155; background-color: #1e293b; object-fit: contain; }
     </style>
 </head>
 <body>
@@ -41,43 +66,95 @@
 
         <div class="app-list">
             
-            <!-- SPAZIO 1: PDFocalize -->
+            <!-- APPLICAZIONE 1: PDFocalize -->
             <div class="app-card">
-                <h3 class="app-title">PDFocalize - Camera Scanner</h3>
-                <div class="app-tags">
-                    <span class="tag android">Android (.apk)</span>
-                    <span class="tag">Versione 1.0.0</span>
+                
+                <!-- Intestazione con Logo Applicazione Affiancato -->
+                <div class="app-header-container">
+                    <img src="ic_launcher.png" alt="Logo PDFocalize" class="app-icon">
+                    <div class="app-header-text">
+                        <h3 class="app-title">PDFocalize - Camera Scanner</h3>
+                        <div class="app-tags">
+                            <span class="tag android">Android (.apk)</span>
+                            <span class="tag">Versione 1.0.0</span>
+                        </div>
+                    </div>
                 </div>
+
                 <p class="app-desc">Trasforma la fotocamera del tuo smartphone in uno scanner portatile ad alta precisione. Metti a fuoco, scatta e converti istantaneamente documenti, ricevute o appunti in file PDF nitidi e leggeri, pronti per essere archiviati o condivisi. Interfaccia pulita, ottimizzazione dell'immagine e nessuna filigrana.</p>
-                <!-- Questo link lo collegheremo tra pochissimo -->
-                <a href="#" class="download-btn">Scarica l'App</a>
+                
+                <div class="actions-row">
+                    <a href="PDFocalize.apk" class="download-btn">Scarica l'App</a>
+                    <button class="info-btn" onclick="toggleDetails()">Guida e Anteprime</button>
+                </div>
+
+                <!-- SEZIONE DETTAGLI AGGIUNTIVA -->
+                <div id="pdfocalize-details" class="details-panel">
+                    <div class="section-title">Anteprime dell'applicazione</div>
+                    <div class="screenshot-grid">
+                        <img src="screen1.png" alt="Inquadratura Documento">
+                        <img src="screen2.png" alt="Anteprima di Scatto e Zoom">
+                        <img src="screen3.png" alt="Filtri e Opzioni">
+                    </div>
+
+                    <div class="section-title">💡 Caratteristiche Esclusive di PDFocalize</div>
+                    <ul class="steps-list" style="list-style-type: square; padding-left: 20px;">
+                        <li><strong>Inquadratura Calibrata:</strong> Algoritmo nativo anti-ingrandimento che elimina i difetti di zoom artificiale su qualsiasi smartphone, mostrando sempre il sensore fotografico reale a schermo intero.</li>
+                        <li><strong>Ritaglio Intelligente con Blocco Magnetico:</strong> I punti di selezione verdi calcolano la fine della foto e si bloccano automaticamente sui bordi effettivi del foglio, impedendo di selezionare le bande nere dello schermo.</li>
+                        <li><strong>Messa a Fuoco Predittiva:</strong> L'applicazione mette a fuoco in automatico la parte alta del rettangolo (al 25% dell'altezza), dove si concentrano i titoli e i testi principali da digitalizzare.</li>
+                    </ul>
+
+                    <div class="section-title">📖 Guida all'uso di PDFocalize</div>
+                    <ol class="steps-list">
+                        <li><strong>Acquisizione flessibile:</strong> Inquadra un documento in tempo reale con la fotocamera oppure premi il pulsante dedicato per importare un'immagine direttamente dalla tua galleria.</li>
+                        <li><strong>Ritaglio geometrico:</strong> Regola l'area di scansione trascinando comodamente i pallini posizionati sugli angoli del rettangolo verde. Puoi scegliere tra la modalità libera o bloccare le proporzioni sui fogli standard ISO (A4/A3).</li>
+                        <li><strong>Anteprima interattiva con zoom:</strong> Dopo lo scatto, analizza l'immagine elaborata nel pop-up dedicato. Puoi zoomare e scorrere con le dita sulla foto per controllare la nitidezza del testo prima di confermare.</li>
+                        <li><strong>Impostazioni avanzate e formati:</strong> Sfrutta il menu <em>'⚙️ Opzioni'</em> per attivare Flash, filtri (B&N, Colore, Seppia), Nitidezza o la modalità Fronte/Retro per le tessere. Gestisci le proporzioni scegliendo tra A4, A3 o inserendo misure personalizzate in millimetri.</li>
+                        <li><strong>Salvataggio e recupero anti-crash:</strong> Aggiungi tutte le pagine che desideri. In caso di chiusura improvvisa, l'applicazione ripristinerà automaticamente i file temporanei al successivo riavvio. Esporta il risultato finale nei tuoi Download con il pulsante <em>'Salva PDF Finale'</em> o usa <em>'Svuota'</em> per pulire la cache.</li>
+                        <li><strong>Supporta il progetto:</strong> PDFocalize è completamente gratuito e privo di pubblicità. Se vuoi supportare il codice open-source, puoi fare una libera donazione tramite l'apposito link di supporto.</li>
+                    </ol>
+
+                    <div class="section-title">📥 Istruzioni per l'installazione</div>
+                    <ol class="steps-list" style="list-style-type: disc;">
+                        <li>Scarica il file <strong>PDFocalize.apk</strong> premendo sul pulsante verde.</li>
+                        <li>Se il browser mostra un avviso di sicurezza legato ai file esterni, seleziona <strong>Scarica comunque</strong>.</li>
+                        <li>Apri il file al termine del download, premi <strong>Installa</strong> e concedi l'autorizzazione all'installazione da sorgenti sconosciute se richiesto dal sistema.</li>
+                    </ol>
+
+                </div>
             </div>
 
-            <!-- SPAZIO 2: App Desktop (In Arrivo) -->
+            <!-- APPLICAZIONE 2: Nuovi Progetti in Arrivo -->
             <div class="app-card coming-soon">
-                <h3 class="app-title">Prossimo Progetto Desktop</h3>
+                <h3 class="app-title">Nuovi software in fase di sviluppo</h3>
                 <div class="app-tags">
-                    <span class="tag windows">Windows (.exe)</span>
                     <span class="tag soon">In Arrivo</span>
                 </div>
-                <p class="app-desc">Descrizione del tuo secondo software in fase di sviluppo. Questo spazio è già formattato e pronto: quando l'app sarà pronta, ti basterà modificare questo testo e sostituire il pulsante qui sotto.</p>
-                <a href="#" class="download-btn disabled">Non ancora disponibile</a>
+                <p class="app-desc">Il catalogo di FrAPPee è in continua espansione. Nuove applicazioni e utility pensate per semplificare le attività quotidiane sono attualmente in fase di progettazione e sviluppo. Continua a seguire la piattaforma per non perderti i primi rilasci gratuiti.</p>
+                <div class="actions-row">
+                    <a href="#" class="download-btn disabled">Non ancora disponibile</a>
+                </div>
             </div>
 
-            <!-- SPAZIO 3: Nuova App (In Arrivo) -->
             <div class="app-card coming-soon">
-                <h3 class="app-title">Nuova Applicazione</h3>
+                <h3 class="app-title">Prossime applicazioni e aggiornamenti</h3>
                 <div class="app-tags">
-                    <span class="tag">Da definire</span>
-                    <span class="tag soon">In Arrivo</span>
+                    <span class="tag soon">In Sviluppo</span>
                 </div>
-                <p class="app-desc">Un ulteriore slot riservato alle tue future idee software. Mantiene il layout del sito pulito e mostra ai visitatori che il catalogo di FrAPPee è in continua espansione.</p>
-                <a href="#" class="download-btn disabled">Non ancora disponibile</a>
+                <p class="app-desc">L'obiettivo è pubblicare regolarmente nuove soluzioni open-source e aggiornamenti per ottimizzare gli strumenti già esistenti. Questo spazio ospiterà molto presto il prossimo progetto indipendente pronto per il download.</p>
+                <div class="actions-row">
+                    <a href="#" class="download-btn disabled">In arrivo</a>
+                </div>
             </div>
 
         </div>
-        
     </div>
 
+    <script>
+        function toggleDetails() {
+            var panel = document.getElementById("pdfocalize-details");
+            panel.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
