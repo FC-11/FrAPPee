@@ -11,11 +11,17 @@
         .container { max-width: 750px; margin: 0 auto; background: #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); border: 1px solid #334155; }
         .logo { font-size: 3.5rem; font-weight: 800; color: #10b981; margin-bottom: 5px; letter-spacing: -1px; }
         .logo span { color: #06b6d4; }
-        .subtitle { color: #94a3b8; font-size: 1.15rem; margin-bottom: 40px; font-weight: 400; }
+        .subtitle { color: #94a3b8; font-size: 1.15rem; margin-bottom: 30px; font-weight: 400; }
+        
+        /* Barra di ricerca */
+        .search-container { margin-bottom: 35px; position: relative; }
+        .search-bar { width: 100%; max-width: 400px; padding: 12px 20px; background-color: #0f172a; border: 1px solid #334155; border-radius: 30px; color: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.2s; box-sizing: border-box; }
+        .search-bar:focus { border-color: #10b981; }
+
         .app-list { text-align: left; }
         .app-card { border: 1px solid #334155; padding: 25px; margin: 25px 0; border-radius: 12px; background-color: #0f172a; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
         .app-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.5); border-color: #475569; }
-        .app-card.coming-soon { opacity: 0.7; border-style: dashed; }
+        .app-card.coming-soon { opacity: 0.6; border-style: dashed; }
         .app-card.coming-soon:hover { transform: none; box-shadow: none; border-color: #334155; }
         
         /* Layout Intestazione Scheda App con Logo */
@@ -28,16 +34,23 @@
         .tag { display: inline-block; background-color: #334155; color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; margin-right: 5px; }
         .tag.android { background-color: #064e3b; color: #6ee7b7; border: 1px solid #047857; }
         .tag.soon { background-color: #78350f; color: #fde68a; border: 1px solid #b45309; }
-        .app-desc { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
+        .app-desc { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 15px; }
         
+        /* Trust Badges */
+        .trust-badges { display: flex; gap: 15px; font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; }
+        .badge-item { display: flex; align-items: center; gap: 5px; }
+
         /* Pulsanti */
-        .actions-row { display: flex; gap: 15px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
-        .download-btn { display: inline-block; background-color: #10b981; color: #0f172a; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); border: none; cursor: pointer; }
+        .actions-row { display: flex; gap: 12px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+        .download-btn { display: inline-block; background-color: #10b981; color: #0f172a; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); border: none; cursor: pointer; }
         .download-btn:hover { background-color: #34d399; color: #0f172a; }
         .download-btn.disabled { background-color: #475569; color: #94a3b8; box-shadow: none; cursor: not-allowed; pointer-events: none; }
         
-        .info-btn { display: inline-block; background-color: transparent; color: #38bdf8; padding: 11px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.2s; border: 1px solid #38bdf8; cursor: pointer; }
+        .info-btn { display: inline-block; background-color: transparent; color: #38bdf8; padding: 11px 22px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.2s; border: 1px solid #38bdf8; cursor: pointer; }
         .info-btn:hover { background-color: rgba(56, 189, 248, 0.1); }
+
+        .kofi-btn { display: inline-block; background-color: #ff5e5b; color: #ffffff; padding: 11px 22px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: opacity 0.2s; box-shadow: 0 4px 14px rgba(255, 94, 91, 0.3); }
+        .kofi-btn:hover { opacity: 0.9; }
 
         /* Sezione Dettagli Nascosta */
         .details-panel { display: none; margin-top: 25px; padding-top: 25px; border-top: 1px solid #334155; }
@@ -45,13 +58,23 @@
         
         .section-title { font-size: 1.1rem; color: #38bdf8; margin: 25px 0 12px 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* Lista Istruzioni */
+        /* Liste */
         .steps-list { padding-left: 20px; margin: 0 0 20px 0; color: #cbd5e1; }
         .steps-list li { margin-bottom: 10px; line-height: 1.6; }
 
         /* Griglia Anteprime */
         .screenshot-grid { display: flex; gap: 15px; margin-top: 15px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
         .screenshot-grid img { width: 160px; height: auto; border-radius: 8px; border: 2px solid #334155; background-color: #1e293b; object-fit: contain; }
+
+        /* FAQ e Sezioni finali */
+        .faq-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #334155; text-align: left; }
+        .faq-item { margin-bottom: 25px; }
+        .faq-question { color: #38bdf8; margin: 0 0 8px 0; font-size: 1.1rem; }
+        .faq-answer { color: #94a3b8; margin: 0; font-size: 0.95rem; line-height: 1.5; }
+
+        .footer { text-align: center; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; padding-top: 25px; margin-top: 40px; }
+        .footer a { color: #cbd5e1; text-decoration: none; }
+        .footer a:hover { color: #10b981; }
     </style>
 </head>
 <body>
@@ -62,16 +85,62 @@
             <img src="FrAPPee.png" alt="Logo FrAPPee" style="width: 55px; height: 55px; object-fit: contain; border-radius: 10px;">
             <div class="logo" style="margin: 0;">Fr<span>APP</span>ee</div>
         </div>
-        <p class="subtitle">Portale di distribuzione indipendente per applicazioni gratuite, sicure e open-source.</p>
+        <p class="subtitle">Portale di distribuzione indipendente per applicazioni gratuite, sicure e private.</p>
 
-        <div class="app-list">
-            
-            <!-- APPLICAZIONE 1: PDFocalize -->
+        <!-- Barra di ricerca dinamica -->
+        <div class="search-container">
+            <input type="text" id="searchBar" class="search-bar" onkeyup="filterApps()" placeholder="Cerca un'applicazione...">
+        </div>
+
+        <div class="app-list" id="appList">
+            <!-- APPLICAZIONE 1: QuizzBando -->
             <div class="app-card">
-                
-                <!-- Intestazione con Logo Applicazione Affiancato -->
                 <div class="app-header-container">
-                    <img src="ic_launcher.png" alt="Logo PDFocalize" class="app-icon">
+                    <img src="quizzbando_icon.png" alt="Logo MyQuizzBando" class="app-icon">
+                    <div class="app-header-text">
+                        <h3 class="app-title">My QuizzBando</h3>
+                        <div class="app-tags">
+                            <span class="tag android">Android (.apk)</span>
+                            <span class="tag">Versione 1.0.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="app-desc">Lo strumento potente, moderno e accessibile pensato per chiunque stia preparando un concorso pubblico. Allena la tua mente con un database unico di domande e risposte create per coprire le materie dei bandi ufficiali. Ottimizza al massimo i tuoi tempi di ripasso senza costi o pubblicità.</p>
+                
+                <div class="trust-badges">
+                    <span class="badge-item">🛡️ Verificato & Sicuro</span>
+                    <span class="badge-item">✨ Totalmente Gratuito</span>
+                </div>
+
+                <div class="actions-row">
+                    <a href="https://github.io" target="_blank" class="info-btn" style="border-color: #10b981; color: #10b981;">🌐 Visita il Sito Ufficiale</a>
+                    <a href="My.QuizzBando.V1.apk" class="download-btn">Scarica per Telefono</a>
+                    <button class="info-btn" onclick="toggleDetails('quizzbando-details')">Guida e Anteprime</button>
+                    <a href="https://ko-fi.com/quizzbando" target="_blank" class="kofi-btn">☕ Offrimi un Caffè</a>
+                </div>
+
+                <div id="quizzbando-details" class="details-panel">
+                    <div class="section-title">Anteprime dell'applicazione</div>
+                    <div class="screenshot-grid">
+                        <img src="qb_screen1.png" alt="Schermata Quiz Android">
+                        <img src="qb_screen2.png" alt="Scelta Materie">
+                        <img src="qb_screen3.png" alt="Ripasso Errori">
+                    </div>
+
+                    <div class="section-title">💡 Funzionalità Chiave</div>
+                    <ul class="steps-list" style="list-style-type: square; padding-left: 20px;">
+                        <li><strong>Importazione CSV flessibile:</strong> Carica qualsiasi tipo di banca dati personalizzata all'interno dell'applicazione per studiare dove vuoi.</li>
+                        <li><strong>Ripasso Errori intelligente:</strong> L'algoritmo tiene traccia dei tuoi sbagli salvandoli in una sezione dedicata per aiutarti a superare i punti deboli.</li>
+                        <li><strong>Zero Pubblicità:</strong> Nessuna interruzione fastidiosa durante le tue sessioni di studio intensivo su smartphone.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- APPLICAZIONE 2: PDFocalize -->
+            <div class="app-card">
+                <div class="app-header-container">
+                    <img src="PDFocalize.png" alt="Logo PDFocalize" class="app-icon">
                     <div class="app-header-text">
                         <h3 class="app-title">PDFocalize - Camera Scanner</h3>
                         <div class="app-tags">
@@ -83,12 +152,17 @@
 
                 <p class="app-desc">Trasforma la fotocamera del tuo smartphone in uno scanner portatile ad alta precisione. Metti a fuoco, scatta e converti istantaneamente documenti, ricevute o appunti in file PDF nitidi e leggeri, pronti per essere archiviati o condivisi. Interfaccia pulita, ottimizzazione dell'immagine e nessuna filigrana.</p>
                 
-                <div class="actions-row">
-                    <a href="PDFocalize.apk" class="download-btn">Scarica l'App</a>
-                    <button class="info-btn" onclick="toggleDetails()">Guida e Anteprime</button>
+                <div class="trust-badges">
+                    <span class="badge-item">🛡️ Verificato & Sicuro</span>
+                    <span class="badge-item">✨ Totalmente Gratuito</span>
                 </div>
 
-                <!-- SEZIONE DETTAGLI AGGIUNTIVA -->
+                <div class="actions-row">
+                    <a href="PDFocalize.apk" class="download-btn">Scarica l'App</a>
+                    <button class="info-btn" onclick="toggleDetails('pdfocalize-details')">Guida e Anteprime</button>
+                    <a href="https://ko-fi.com/quizzbando" target="_blank" class="kofi-btn">☕ Sostieni</a>
+                </div>
+
                 <div id="pdfocalize-details" class="details-panel">
                     <div class="section-title">Anteprime dell'applicazione</div>
                     <div class="screenshot-grid">
@@ -108,10 +182,9 @@
                     <ol class="steps-list">
                         <li><strong>Acquisizione flessibile:</strong> Inquadra un documento in tempo reale con la fotocamera oppure premi il pulsante dedicato per importare un'immagine direttamente dalla tua galleria.</li>
                         <li><strong>Ritaglio geometrico:</strong> Regola l'area di scansione trascinando comodamente i pallini posizionati sugli angoli del rettangolo verde. Puoi scegliere tra la modalità libera o bloccare le proporzioni sui fogli standard ISO (A4/A3).</li>
-                        <li><strong>Anteprima interattiva con zoom:</strong> Dopo lo scatto, analizza l'immagine elaborata nel pop-up dedicato. Puoi zoomare e scorrere con le dita sulla foto per controllare la nitidezza del testo prima di confermare.</li>
+                        <li><strong>Anteprima interattiva con zoom:</strong> After lo scatto, analizza l'immagine elaborata nel pop-up dedicato. Puoi zoomare e scorrere con le dita sulla foto per controllare la nitidezza del testo prima di confermare.</li>
                         <li><strong>Impostazioni avanzate e formati:</strong> Sfrutta il menu <em>'⚙️ Opzioni'</em> per attivare Flash, filtri (B&N, Colore, Seppia), Nitidezza o la modalità Fronte/Retro per le tessere. Gestisci le proporzioni scegliendo tra A4, A3 o inserendo misure personalizzate in millimetri.</li>
                         <li><strong>Salvataggio e recupero anti-crash:</strong> Aggiungi tutte le pagine che desideri. In caso di chiusura improvvisa, l'applicazione ripristinerà automaticamente i file temporanei al successivo riavvio. Esporta il risultato finale nei tuoi Download con il pulsante <em>'Salva PDF Finale'</em> o usa <em>'Svuota'</em> per pulire la cache.</li>
-                        <li><strong>Supporta il progetto:</strong> PDFocalize è completamente gratuito e privo di pubblicità. Se vuoi supportare il codice open-source, puoi fare una libera donazione tramite l'apposito link di supporto.</li>
                     </ol>
 
                     <div class="section-title">📥 Istruzioni per l'installazione</div>
@@ -120,40 +193,91 @@
                         <li>Se il browser mostra un avviso di sicurezza legato ai file esterni, seleziona <strong>Scarica comunque</strong>.</li>
                         <li>Apri il file al termine del download, premi <strong>Installa</strong> e concedi l'autorizzazione all'installazione da sorgenti sconosciute se richiesto dal sistema.</li>
                     </ol>
-
                 </div>
             </div>
 
-            <!-- APPLICAZIONE 2: Nuovi Progetti in Arrivo -->
             <div class="app-card coming-soon">
                 <h3 class="app-title">Nuovi software in fase di sviluppo</h3>
                 <div class="app-tags">
-                    <span class="tag soon">In Arrivo</span>
-                </div>
-                <p class="app-desc">Il catalogo di FrAPPee è in continua espansione. Nuove applicazioni e utility pensate per semplificare le attività quotidiane sono attualmente in fase di progettazione e sviluppo. Continua a seguire la piattaforma per non perderti i primi rilasci gratuiti.</p>
-                <div class="actions-row">
-                    <a href="#" class="download-btn disabled">Non ancora disponibile</a>
-                </div>
-            </div>
-
-            <div class="app-card coming-soon">
-                <h3 class="app-title">Prossime applicazioni e aggiornamenti</h3>
-                <div class="app-tags">
                     <span class="tag soon">In Sviluppo</span>
                 </div>
-                <p class="app-desc">L'obiettivo è pubblicare regolarmente nuove soluzioni open-source e aggiornamenti per ottimizzare gli strumenti già esistenti. Questo spazio ospiterà molto presto il prossimo progetto indipendente pronto per il download.</p>
+                <p class="app-desc">Nuove applicazioni e utility pensate per semplificare le attività quotidiane sono attualmente in fase di progettazione e sviluppo. Continua a seguire la piattaforma per non perderti i primi rilasci gratuiti.</p>
                 <div class="actions-row">
-                    <a href="#" class="download-btn disabled">In arrivo</a>
+                    <button class="download-btn disabled" disabled>Non ancora disponibile</button>
                 </div>
             </div>
 
-        </div>
-    </div>
+        </div> <!-- Fine app-list -->
+        <div class="faq-section">
+            <h3 style="font-size: 1.4rem; color: #10b981; margin-bottom: 25px;">❓ Domande Frequenti (FAQ)</h3>
+            
+            <div class="faq-item">
+                <h4 class="faq-question">Android dice che il file potrebbe essere dannoso. Cosa significa?</h4>
+                <p class="faq-answer">È un avviso standard di sicurezza che Android mostra ogni volta che installi un file .apk scaricato manualmente dal browser al di fuori del Google Play Store. Tutti i software presenti su FrAPPee sono sviluppati in totale sicurezza ed esenti da qualsiasi malware o sistema di tracciamento dei dati.</p>
+            </div>
 
+            <div class="faq-item">
+                <h4 class="faq-question">Come faccio ad aggiornare un'applicazione installata da qui?</h4>
+                <p class="faq-answer">Ti basterà tornare periodicamente su questa pagina e scaricare l'APK della nuova versione. Aprendo il file scaricato, Android riconoscerà l'app esistente e ti proporrà di installare l'aggiornamento mantenendo intatti tutti i tuoi dati.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Come vengono generate le banche dati di My QuizzBando?</h4>
+                <p class="faq-answer">I pacchetti delle materie e le banche dati integrative vengono estratti a partire dai testi dei concorsi tramite l'ausilio di modelli di Intelligenza Artificiale. Se riscontri refusi o imprecisioni nei quesiti generati, puoi sfruttare la comoda funzionalità "Ripasso Errori" interna all'app per fare pratica mirata.</p>
+            </div>
+        </div>
+
+        <!-- FOOTER AGGIORNATO CON LOGO -->
+        <div class="footer">
+            <div style="margin-bottom: 15px;">
+                <img src="FrAPPee.png" alt="Logo FrAPPee Footer" style="width: 35px; height: 35px; object-fit: contain; border-radius: 6px; opacity: 0.8;">
+            </div>
+            <p>FrAPPee è un progetto indipendente sviluppato con ❤️ per la community.</p>
+            <p>
+                <a href="https://ko-fi.com" target="_blank" style="color: #ff5e5b; font-weight: bold;">Sostieni su Ko-fi</a> • 
+                <a href="https://github.com" target="_blank">Repository GitHub</a>
+            </p>
+            <p style="margin-top: 15px; opacity: 0.5; font-size: 0.75rem;">© 2026 FrAPPee • Tutti i diritti riservati.</p>
+        </div>
+
+    </div> <!-- Fine container -->
+
+    <!-- LOGICA JAVASCRIPT (Racchiusa correttamente nei tag) -->
     <script>
-        function toggleDetails() {
-            var panel = document.getElementById("pdfocalize-details");
-            panel.classList.toggle("active");
+        // Gestore per mostrare/nascondere i dettagli delle app
+        function toggleDetails(id) {
+            var panel = document.getElementById(id);
+            if (panel) {
+                panel.classList.toggle("active");
+            }
+        }
+
+        // Funzione corretta per filtrare le app tramite barra di ricerca
+        function filterApps() {
+            var input = document.getElementById('searchBar');
+            var filter = input.value.toLowerCase();
+            var appList = document.getElementById('appList');
+            var cards = appList.getElementsByClassName('app-card');
+
+            for (var i = 0; i < cards.length; i++) {
+                // Usiamo querySelector per prendere direttamente il testo interno ed evitare bug
+                var titleEl = cards[i].querySelector('.app-title');
+                var descEl = cards[i].querySelector('.app-desc');
+                
+                var titleText = titleEl ? (titleEl.textContent || titleEl.innerText) : "";
+                var descText = descEl ? (descEl.textContent || descEl.innerText) : "";
+                
+                if (titleText.toLowerCase().indexOf(filter) > -1 || descText.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    // Mantiene visibile la card "coming-soon" solo se non si sta cercando attivamente
+                    if (cards[i].classList.contains('coming-soon') && filter !== "") {
+                        cards[i].style.display = "none";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
         }
     </script>
 </body>
